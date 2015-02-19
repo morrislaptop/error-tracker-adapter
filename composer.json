@@ -13,8 +13,22 @@
             "Morrislaptop\\ErrorTracker\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\Morrislaptop\\ErrorTracker\\": "tests/"
+        }
+    },
+    "repositories": [{
+          "type": "vcs",
+          "url": "https://github.com/morrislaptop/php-vcr"
+        }
+    ],
     "require": {},
     "require-dev": {
-        "raven/raven": "0.10.*"
+        "raven/raven": "0.10.*",
+        "phpspec/phpspec": "~2.1",
+        "php-vcr/php-vcr": "dev-master",
+        "php-vcr/phpunit-testlistener-vcr": "~1.1",
+        "phpunit/phpunit": "~4.5"
     }
 }

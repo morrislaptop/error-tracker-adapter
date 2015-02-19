@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Morrislaptop\ErrorTracker
+        psr4_prefix: Morrislaptop\ErrorTracker
+        src_path: src

@@ -6,4 +6,4 @@ php:
   - hhvm
 
 install: composer install
-script: phpunit && phpspec run
+script: phpunit && vendor/bin/phpspec run

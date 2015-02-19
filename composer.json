@@ -8,6 +8,11 @@
             "email": "craig.michael.morris@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Morrislaptop\\ErrorTracker\\": "src/"
+        }
+    },
     "require": {},
     "require-dev": {
         "raven/raven": "0.10.*"

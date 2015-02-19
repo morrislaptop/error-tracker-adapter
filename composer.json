@@ -1,0 +1,15 @@
+{
+    "name": "morrislaptop/error-tracker-adapter",
+    "description": "Track errors and exceptions through the most popular Saas platforms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Craig Morris",
+            "email": "craig.michael.morris@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "raven/raven": "0.10.*"
+    }
+}

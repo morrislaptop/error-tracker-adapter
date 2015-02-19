@@ -32,7 +32,7 @@ class Sentry extends AbstractAdapter implements ShutdownAwareTracker {
     /**
      * {@inheritDoc}
      */
-    public function report(Exception $e, array $extra)
+    public function report(Exception $e, array $extra = [])
     {
         return $this->raven->getIdent($this->raven->captureException($e), $extra);
     }

@@ -11,7 +11,7 @@ interface Tracker
      * @param array $extra
      * @return mixed
      */
-    public function report(Exception $e, array $extra);
+    public function report(Exception $e, array $extra = []);
 
     /**
      * Registers this tracker as THE exception handler

@@ -1,9 +1,9 @@
 <?php namespace spec\Morrislaptop\ErrorTracker\Adapter;
 
 use Airbrake\Client;
+use UnexpectedValueException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use UnexpectedValueException;
 
 class AirbrakeSpec extends ObjectBehavior
 {

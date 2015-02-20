@@ -1,9 +1,9 @@
 <?php namespace spec\Morrislaptop\ErrorTracker\Adapter;
 
+use Raven_Client;
 use UnexpectedValueException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Raven_Client;
 
 class SentrySpec extends ObjectBehavior
 {

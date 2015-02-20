@@ -1,8 +1,8 @@
 <?php namespace tests\Morrislaptop\ErrorTracker\Adapter;
 
+use Raven_Client;
 use Morrislaptop\ErrorTracker\Adapter\Sentry;
 use PhpSpec\Exception\Wrapper\CollaboratorException;
-use Raven_Client;
 use tests\Morrislaptop\ErrorTracker\TrackerTestCase;
 use VCR\Request;
 use VCR\VCR;

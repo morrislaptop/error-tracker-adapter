@@ -1,9 +1,7 @@
 <?php namespace Morrislaptop\ErrorTracker\Adapter;
 
-use Exception;
-use Morrislaptop\ErrorTracker\ShutdownAwareTracker;
 use Raven_Client;
-use Raven_ErrorHandler;
+use Exception;
 
 class Sentry extends AbstractAdapter {
 

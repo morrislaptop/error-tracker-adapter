@@ -1,13 +1,10 @@
 <?php namespace tests\Morrislaptop\ErrorTracker\Adapter;
 
 use Airbrake\Client;
-use Airbrake\Configuration as AirbrakeConfiguration;
+use Airbrake\Configuration;
 use Morrislaptop\ErrorTracker\Adapter\Airbrake;
-use Morrislaptop\ErrorTracker\Adapter\Sentry;
 use PhpSpec\Exception\Wrapper\CollaboratorException;
-use Raven_Client;
 use tests\Morrislaptop\ErrorTracker\TrackerTestCase;
-use VCR\Configuration;
 use VCR\Request;
 use VCR\VCR;
 
@@ -19,7 +16,7 @@ class AirbrakeTest extends TrackerTestCase {
     public function testReport()
     {
         // Arrange.
-        $config = new AirbrakeConfiguration('23423423432');
+        $config = new Configuration('23423423432');
         $airbrake = new Client($config);
         $airbrake = new Airbrake($airbrake);
         $exception = new CollaboratorException('No collab!');

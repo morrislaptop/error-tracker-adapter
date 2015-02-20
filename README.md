@@ -19,7 +19,7 @@ It has been created on two main principles:
 The supported platforms are:
 
 * [X] [Sentry](https://getsentry.com/) via [raven](https://github.com/getsentry/raven-php)
-* [ ] [Bugsnag](https://bugsnag.com/) via [bugsnag-php](https://github.com/bugsnag/bugsnag-php)
+* [X] [Bugsnag](https://bugsnag.com/) via [bugsnag-php](https://github.com/bugsnag/bugsnag-php)
 * [X] [AirBrake](https://airbrake.io/) via [php-airbrake](https://github.com/dbtlr/php-airbrake)
 
 ## Installation
@@ -147,7 +147,7 @@ $handler->bootstrap();
 
 ### Contexts
 
-Many platforms support the idea of contexts to give you more information about exceptions occuring in your application. 
+Many platforms support the idea of contexts to give you more information about exceptions occuring in your application. This can happen on the user, environment or event level. 
 
 This will be implemented via a `ContextInterface` in the future. In the mean time you can pass extra information via the `report()` method like..
 

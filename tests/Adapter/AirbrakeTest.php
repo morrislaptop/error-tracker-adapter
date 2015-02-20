@@ -36,8 +36,8 @@ class AirbrakeTest extends TrackerTestCase {
             $first = simplexml_load_string($first->getBody());
             $second = simplexml_load_string($second->getBody());
 
-            $this->assertSame((string) $second->error->class, (string) $first->error->class);
-            $this->assertSame((string) $second->request->params->var, (string) $first->request->params->var);
+            $this->assertSame((string) $first->error->class, (string) $second->error->class);
+            $this->assertSame((string) $first->request->params->var, (string) $second->request->params->var);
 
             return true;
         });

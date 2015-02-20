@@ -35,8 +35,8 @@ class BugsnagTest extends TrackerTestCase {
             $first = json_decode($first->getBody());
             $second = json_decode($second->getBody());
 
-            $this->assertSame($second->events[0]->exceptions[0]->errorClass, $first->events[0]->exceptions[0]->errorClass);
-            $this->assertSame($second->events[0]->metaData->php_version, $first->events[0]->metaData->php_version);
+            $this->assertSame($first->events[0]->exceptions[0]->errorClass, $second->events[0]->exceptions[0]->errorClass);
+            $this->assertSame($first->events[0]->metaData->php_version, $second->events[0]->metaData->php_version);
 
             return true;
         });

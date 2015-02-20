@@ -34,8 +34,8 @@ class SentryTest extends TrackerTestCase {
             $first = json_decode(gzuncompress(base64_decode($first->getBody())));
             $second = json_decode(gzuncompress(base64_decode($second->getBody())));
 
-            $this->assertSame($second->message, $first->message);
-            $this->assertSame($second->extra->php_version, $first->extra->php_version);
+            $this->assertSame($first->message, $second->message);
+            $this->assertSame($first->extra->php_version, $second->extra->php_version);
 
             return true;
         });

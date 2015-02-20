@@ -13,20 +13,11 @@ class Sentry extends AbstractAdapter {
     private $raven;
 
     /**
-     * @var Raven_ErrorHandler
-     */
-    private $errorHandler;
-
-    /**
      * @param Raven_Client $raven
-     * @param Raven_ErrorHandler $errorHandler
      */
-    function __construct(Raven_Client $raven, Raven_ErrorHandler $errorHandler = null)
+    function __construct(Raven_Client $raven)
     {
         $this->raven = $raven;
-        if (!$this->errorHandler = $errorHandler) {
-            $this->errorHandler = new Raven_ErrorHandler($raven);
-        }
     }
 
     /**
@@ -37,27 +28,4 @@ class Sentry extends AbstractAdapter {
         return $this->raven->getIdent($this->raven->captureException($e, ['extra' => $extra]));
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function registerExceptionHandler()
-    {
-        $this->errorHandler->registerExceptionHandler();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function registerErrorHandler()
-    {
-        $this->errorHandler->registerErrorHandler();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function registerShutdownHandler()
-    {
-        $this->errorHandler->registerShutdownFunction();
-    }
 }

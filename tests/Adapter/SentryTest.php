@@ -12,18 +12,15 @@ class SentryTest extends TrackerTestCase {
     /**
      * @vcr sentry.yml
      */
-    public function testPushAndPop()
+    public function testReport()
     {
         // Arrange.
         $raven = new Raven_Client('https://adfasd:dafdsaf@app.getsentry.com/23432');
         $sentry = new Sentry($raven);
         $exception = new CollaboratorException('No collab!');
 
-        // Act.
-        $eventId = $sentry->report($exception, ['php_version' => '5.4']);
-
-        // Assert.
-        //$this->assert();
+        // Act & PHP-VCR Asserts.
+        $sentry->report($exception, ['php_version' => '5.4']);
     }
 
     /**

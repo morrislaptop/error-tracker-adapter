@@ -1,6 +1,6 @@
 <?php namespace spec\Morrislaptop\ErrorTracker\Adapter;
 
-use Doctrine\Instantiator\Exception\UnexpectedValueException;
+use UnexpectedValueException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Raven_Client;

@@ -14,7 +14,7 @@ class Sentry extends AbstractAdapter
     /**
      * @param Raven_Client $raven
      */
-    function __construct(Raven_Client $raven)
+    public function __construct(Raven_Client $raven)
     {
         $this->raven = $raven;
     }

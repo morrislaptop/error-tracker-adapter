@@ -13,7 +13,7 @@ class ExceptionHandler
     /**
      * @param Tracker $tracker
      */
-    function __construct(Tracker $tracker)
+    public function __construct(Tracker $tracker)
     {
         $this->tracker = $tracker;
     }
@@ -73,7 +73,8 @@ class ExceptionHandler
     public function handleShutdown()
     {
         if (! is_null($error = error_get_last()) && $this->isFatal($error['type'])) {
-            $this->handleException(new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']));
+            $exception = new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']);
+            $this->handleException($exception);
         }
     }
 

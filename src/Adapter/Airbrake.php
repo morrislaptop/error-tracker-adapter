@@ -13,7 +13,7 @@ class Airbrake extends AbstractAdapter
     /**
      * @param Client $airbrake
      */
-    function __construct(Client $airbrake)
+    public function __construct(Client $airbrake)
     {
         $this->airbrake = $airbrake;
     }

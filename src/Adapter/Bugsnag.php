@@ -14,7 +14,7 @@ class Bugsnag extends AbstractAdapter
     /**
      * @param Bugsnag_Client $bugsnag
      */
-    function __construct(Bugsnag_Client $bugsnag)
+    public function __construct(Bugsnag_Client $bugsnag)
     {
         $this->bugsnag = $bugsnag;
     }

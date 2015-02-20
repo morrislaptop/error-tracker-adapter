@@ -20,7 +20,7 @@ The supported platforms are:
 
 * [X] [Sentry](https://getsentry.com/) via [raven](https://github.com/getsentry/raven-php)
 * [ ] [Bugsnag](https://bugsnag.com/) via [bugsnag-php](https://github.com/bugsnag/bugsnag-php)
-* [ ] [AirBrake](https://airbrake.io/) via [php-airbrake](https://github.com/dbtlr/php-airbrake)
+* [X] [AirBrake](https://airbrake.io/) via [php-airbrake](https://github.com/dbtlr/php-airbrake)
 
 ## Installation
 
@@ -145,9 +145,15 @@ $handler = new Morrislaptop\ErrorTracker\ExceptionHandler($tracker);
 $handler->bootstrap();
 ```
 
-### Factory
+### Contexts
 
-@todo
+Many platforms support the idea of contexts to give you more information about exceptions occuring in your application. 
+
+This will be implemented via a `ContextInterface` in the future. In the mean time you can pass extra information via the `report()` method like..
+
+```php
+$this->tracker->report($e, ['user_id' => Session::get('user_id'));
+```
 
 ## Contributing
 

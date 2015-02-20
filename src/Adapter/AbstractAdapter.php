@@ -1,6 +1,8 @@
 <?php namespace Morrislaptop\ErrorTracker\Adapter;
 
-abstract class AbstractAdapter implements Adapter
+use Morrislaptop\ErrorTracker\AbstractTracker;
+
+abstract class AbstractAdapter extends AbstractTracker implements Adapter
 {
 
 }

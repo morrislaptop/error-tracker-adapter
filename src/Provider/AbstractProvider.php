@@ -1,5 +1,7 @@
-<?php namespace Morrislaptop\ErrorTracker;
+<?php namespace Morrislaptop\ErrorTracker\Provider;
 
-abstract class AbstractProvider implements Provider {
+use Morrislaptop\ErrorTracker\AbstractTracker;
+
+abstract class AbstractProvider extends AbstractTracker implements Provider {
 
 }

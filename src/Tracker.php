@@ -13,19 +13,4 @@ interface Tracker
      */
     public function report(Exception $e, array $extra = []);
 
-    /**
-     * Registers this tracker as THE exception handler
-     */
-    public function registerExceptionHandler();
-
-    /**
-     * Registers this tracker as THE exception handler
-     */
-    public function registerErrorHandler();
-
-    /**
-     * Registers this tracker as THE exception handler
-     */
-    public function registerShutdownHandler();
-
 }

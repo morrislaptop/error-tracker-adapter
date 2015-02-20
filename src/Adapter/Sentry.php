@@ -5,7 +5,7 @@ use Morrislaptop\ErrorTracker\ShutdownAwareTracker;
 use Raven_Client;
 use Raven_ErrorHandler;
 
-class Sentry extends AbstractAdapter implements ShutdownAwareTracker {
+class Sentry extends AbstractAdapter {
 
     /**
      * @var Raven_Client

@@ -12,5 +12,4 @@ interface Tracker
      * @return mixed
      */
     public function report(Exception $e, array $extra = []);
-
 }

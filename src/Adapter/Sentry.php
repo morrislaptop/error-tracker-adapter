@@ -3,7 +3,8 @@
 use Raven_Client;
 use Exception;
 
-class Sentry extends AbstractAdapter {
+class Sentry extends AbstractAdapter
+{
 
     /**
      * @var Raven_Client
@@ -25,5 +26,4 @@ class Sentry extends AbstractAdapter {
     {
         return $this->raven->getIdent($this->raven->captureException($e, ['extra' => $extra]));
     }
-
 }

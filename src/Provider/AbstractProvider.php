@@ -2,6 +2,7 @@
 
 use Morrislaptop\ErrorTracker\AbstractTracker;
 
-abstract class AbstractProvider extends AbstractTracker implements Provider {
+abstract class AbstractProvider extends AbstractTracker implements Provider
+{
 
 }

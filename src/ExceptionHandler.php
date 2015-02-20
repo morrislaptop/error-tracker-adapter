@@ -21,7 +21,8 @@ class ExceptionHandler
     /**
      * Bootstrap this class into the runtime
      */
-    public function bootstrap() {
+    public function bootstrap()
+    {
         error_reporting(-1);
         set_error_handler([$this, 'handleError']);
         set_exception_handler([$this, 'handleException']);
@@ -40,8 +41,7 @@ class ExceptionHandler
      */
     public function handleError($level, $message, $file = '', $line = 0, $context = array())
     {
-        if (error_reporting() & $level)
-        {
+        if (error_reporting() & $level) {
             throw new ErrorException($message, 0, $level, $file, $line);
         }
     }
@@ -72,8 +72,7 @@ class ExceptionHandler
      */
     public function handleShutdown()
     {
-        if ( ! is_null($error = error_get_last()) && $this->isFatal($error['type']))
-        {
+        if (! is_null($error = error_get_last()) && $this->isFatal($error['type'])) {
             $this->handleException(new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']));
         }
     }
@@ -88,5 +87,4 @@ class ExceptionHandler
     {
         return in_array($type, [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE]);
     }
-
 }

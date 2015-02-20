@@ -2,6 +2,7 @@
 
 use Morrislaptop\ErrorTracker\Tracker;
 
-interface Provider extends Tracker {
+interface Provider extends Tracker
+{
 
 }

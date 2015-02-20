@@ -3,7 +3,8 @@
 use Bugsnag_Client;
 use Exception;
 
-class Bugsnag extends AbstractAdapter {
+class Bugsnag extends AbstractAdapter
+{
 
     /**
      * @var Bugsnag_Client
@@ -26,5 +27,4 @@ class Bugsnag extends AbstractAdapter {
         $this->bugsnag->setMetaData($extra);
         return $this->bugsnag->exceptionHandler($e);
     }
-
 }

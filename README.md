@@ -18,9 +18,9 @@ It has been created on two main principles:
 
 The supported platforms are:
 
-* [X] Sentry
-* [] Bugsnag
-* [] AirBrake
+* [X] [Sentry](https://getsentry.com/) via [raven](https://github.com/getsentry/raven-php)
+* [ ] [Bugsnag](https://bugsnag.com/) via [bugsnag-php](https://github.com/bugsnag/bugsnag-php)
+* [ ] [AirBrake](https://airbrake.io/) via [php-airbrake](https://github.com/dbtlr/php-airbrake)
 
 ## Installation
 
@@ -32,7 +32,118 @@ $ composer require morrislaptop/error-tracker-adapter
 
 ## Usage
 
-The use of this library is a _reporter_ and not a renderer.
+The use of this library is a _reporter_ and not a renderer. So it's recommended that you handle exceptions in your application with your own class and then report to the interface if it's the right error type and/or environment.
+
+An example exception handler for your application might look like.. 
+
+```java
+<?php namespace App\Exceptions;
+
+use Exception;
+use Morrislaptop\ErrorTracker\Tracker;
+
+class Handler
+{
+	/**
+	 * @var Tracker
+	 */
+	private $tracker;
+
+	/**
+	 * @param LoggerInterface $log
+	 * @param Tracker $tracker
+	 */
+	function __construct(Tracker $tracker)
+	{
+		$this->tracker = $tracker;
+	}
+
+	/**
+	 * Bootstrap this class into the runtime
+	 */
+	public function bootstrap() {
+		error_reporting(-1);
+		set_error_handler([$this, 'handleError']);
+		set_exception_handler([$this, 'handleException']);
+		register_shutdown_function([$this, 'handleShutdown']);
+	}
+
+	/**
+	 * Convert a PHP error to an ErrorException.
+	 *
+	 * @param  int  $level
+	 * @param  string  $message
+	 * @param  string  $file
+	 * @param  int  $line
+	 * @param  array  $context
+	 * @return void
+	 *
+	 * @throws \ErrorException
+	 */
+	public function handleError($level, $message, $file = '', $line = 0, $context = array())
+	{
+		if (error_reporting() & $level)
+		{
+			throw new ErrorException($message, 0, $level, $file, $line);
+		}
+	}
+
+	/**
+	 * Handle an uncaught exception from the application.
+	 *
+	 * Note: Most exceptions can be handled via the try / catch block in
+	 * the HTTP and Console kernels. But, fatal error exceptions must
+	 * be handled differently since they are not normal exceptions.
+	 *
+	 * @param  \Exception  $e
+	 * @return void
+	 */
+	public function handleException($e)
+	{
+		if (!getenv('APP_DEBUG')) {
+			$this->tracker->report($e);
+		}
+
+		throw $e; // throw back to core PHP to render
+	}
+
+	/**
+	 * Handle the PHP shutdown event.
+	 *
+	 * @return void
+	 */
+	public function handleShutdown()
+	{
+		if ( ! is_null($error = error_get_last()) && $this->isFatal($error['type']))
+		{
+			$this->handleException(new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']));
+		}
+	}
+
+	/**
+	 * Determine if the error type is fatal.
+	 *
+	 * @param  int  $type
+	 * @return bool
+	 */
+	protected function isFatal($type)
+	{
+		return in_array($type, [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE]);
+	}
+
+}
+```
+
+For convenience, the above generic exception handler is included with the library so you can quickly get started, by simply creating it in your boostrap or similar. 
+
+```php
+$tracker = new Morrislaptop\ErrorTracker\Adapter\Sentry(new Raven_Client('https://blah.com'));
+// or
+$tracker = new Morrislaptop\ErrorTracker\Adapter\BugSnag(new Bugsnag_Client('2344324342'));
+
+$handler = new Morrislaptop\ErrorTracker\ExceptionHandler($tracker);
+$handler->bootstrap();
+```
 
 ### Factory
 

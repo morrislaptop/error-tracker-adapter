@@ -16,11 +16,21 @@ It has been created on two main principles:
 * [Code to an interface and not an implemenation](https://www.google.co.uk/?q=code%20to%20an%20interface)
 * [Protecting yourself from third party APIs breaking your application](http://butunclebob.com/ArticleS.JamesGrenning.AlternativeToTheHopeAndPrayMethod)
 
-The supported platforms are:
+The supported platforms (adapters) are:
 
-* [X] [Sentry](https://getsentry.com/) via [raven](https://github.com/getsentry/raven-php)
-* [X] [Bugsnag](https://bugsnag.com/) via [bugsnag-php](https://github.com/bugsnag/bugsnag-php)
-* [X] [AirBrake](https://airbrake.io/) via [php-airbrake](https://github.com/dbtlr/php-airbrake)
+* [X] [Sentry](https://getsentry.com/) via [raven/raven](https://github.com/getsentry/raven-php)
+* [X] [Bugsnag](https://bugsnag.com/) via [bugsnag/bugsnag](https://github.com/bugsnag/bugsnag-php)
+* [X] [AirBrake](https://airbrake.io/) via [dbltr/php-airbrake](https://github.com/dbtlr/php-airbrake)
+* [ ] [Rollbar](https://rollbar.com/) via [rollbar-php](https://github.com/rollbar/rollbar-php)
+* [ ] [Exceptiontrap](https://exceptiontrap.com/)
+* [ ] [Raygun](https://raygun.io/)
+* [ ] [Bugify](https://bugify.com/)
+
+In addition you can use providers which will give you error tracking functionality without the use of a SaaS:
+
+* [ ] Email reporter
+* [ ] Log Reporter
+* [ ] Chain Reporter for sending multiple reports (e.g. logging and reporting to AirBrake)
 
 ## Installation
 

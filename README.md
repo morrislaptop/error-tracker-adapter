@@ -28,7 +28,7 @@ The supported platforms (adapters) are:
 
 In addition you can use providers which will give you error tracking functionality without the use of a SaaS:
 
-* [ ] Email reporter
+* [X] [Email reporter](https://github.com/morrislaptop/error-tracker-adapter-email)
 * [ ] Log Reporter
 * [ ] Chain Reporter for sending multiple reports (e.g. logging and reporting to AirBrake)
 

@@ -28,9 +28,13 @@ The supported platforms (adapters) are:
 
 In addition you can use providers which will give you error tracking functionality without the use of a SaaS:
 
-* [X] [Email reporter](https://github.com/morrislaptop/error-tracker-adapter-email)
-* [ ] Log Reporter
-* [ ] Chain Reporter for sending multiple reports (e.g. logging and reporting to AirBrake)
+* [X] Email Repoter via [error-tracker-adapter-email](https://github.com/morrislaptop/error-tracker-adapter-email)
+* [X] Log Reporter
+
+Also, you can use Group providers which will report to the any / all trackers you provide. 
+
+* [X] Chain Reporter for trying to report until one is successful (e.g. logging IF the API call to AirBrake fails)
+* [X] Net Reporter for sending multiple reports (e.g. logging AND reporting to AirBrake)
 
 ## Installation
 
@@ -153,6 +157,31 @@ $tracker = new Morrislaptop\ErrorTracker\Adapter\BugSnag(new Bugsnag_Client('234
 
 $handler = new Morrislaptop\ErrorTracker\ExceptionHandler($tracker);
 $handler->bootstrap();
+```
+
+### Group Providers
+
+```php
+
+$monolog = new Monolog\Logger();
+$monolog->pushHandler(new StreamHandler('path/to/your.log', Monolog\Logger::ERROR));
+$logger = new Morrislaptop\ErrorTracker\Provider\Log($monolog);
+
+$sentry = new Morrislaptop\ErrorTracker\Adapter\Sentry(new Raven_Client('https://blah.com'));
+$bugsnag = new Morrislaptop\ErrorTracker\Adapter\BugSnag(new Bugsnag_Client('2344324342'));
+
+// If you wanted to fallback to a log if reporting to Sentry fails..
+$chain = new Morrislaptop\ErrorTracker\Group\Chain();
+$chain->add($sentry);
+$chain->add($logger);
+$chain->report(new \Exception('This will be logged to file if Sentry is down'));
+
+// If you wanted to report to Bugsnag AND Sentry to compare those platforms
+$chain = new Morrislaptop\ErrorTracker\Group\Chain();
+$chain->add($sentry);
+$chain->add($bugsnag);
+$chain->report(new \Exception('Which is the better platform? This exception will go to both'));
+
 ```
 
 ### Contexts

@@ -1,8 +1,9 @@
-<?php  namespace Morrislaptop\ErrorTracker\Group; 
+<?php  namespace Morrislaptop\ErrorTracker\Group;
 
 use Morrislaptop\ErrorTracker\Tracker;
 
-interface Group extends Tracker {
+interface Group extends Tracker
+{
 
     /**
      * Adds a tracker.
@@ -12,5 +13,4 @@ interface Group extends Tracker {
      * @return Group
      */
     public function add(Tracker $tracker);
-
 }

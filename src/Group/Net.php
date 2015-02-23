@@ -26,7 +26,7 @@ class Net extends AbstractGroup
             }
         }
 
-        if ( !$results ) {
+        if (!$results) {
             throw new GroupNotReported(sprintf('Could not report: "%s".', $e->getMessage()), $exceptions);
         }
 

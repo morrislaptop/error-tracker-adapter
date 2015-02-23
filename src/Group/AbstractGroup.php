@@ -8,12 +8,12 @@ abstract class AbstractGroup implements Group
     /**
      * @var Tracker[]
      */
-    var $trackers;
+    protected $trackers;
 
     /**
      * @param array $trackers
      */
-    function __construct(array $trackers = [])
+    public function __construct(array $trackers = [])
     {
         $this->trackers = $trackers;
     }

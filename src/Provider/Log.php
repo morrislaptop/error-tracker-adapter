@@ -13,7 +13,7 @@ class Log extends AbstractProvider
     /**
      * @param LoggerInterface $log
      */
-    function __construct(LoggerInterface $log)
+    public function __construct(LoggerInterface $log)
     {
         $this->log = $log;
     }

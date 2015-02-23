@@ -1,7 +1,8 @@
-<?php  namespace Morrislaptop\ErrorTracker\Exception; 
+<?php  namespace Morrislaptop\ErrorTracker\Exception;
 
 use RuntimeException;
 
-class NotReported extends RuntimeException implements Exception {
+class NotReported extends RuntimeException implements Exception
+{
 
 }

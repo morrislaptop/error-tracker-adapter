@@ -9,14 +9,18 @@ Version](https://poser.pugx.org/morrislaptop/error-tracker-adapter/v/stable.png)
 
 Track errors and exceptions through the most popular SaaS platforms.
 
-**Error Tracker Adapter** is a PHP library which helps you track exceptions and errors in your application by providing a powerful abstraction layer for error tracker SaaS platforms. 
+**Error Tracker Adapter** is a PHP library which helps you track exceptions and errors in your application by providing a powerful abstraction layer for error tracker SaaS platforms and / or local repositories like emails and log files. 
 
 It has been created on two main principles:
 
 * [Code to an interface and not an implemenation](https://www.google.co.uk/?q=code%20to%20an%20interface)
 * [Protecting yourself from third party APIs breaking your application](http://butunclebob.com/ArticleS.JamesGrenning.AlternativeToTheHopeAndPrayMethod)
 
-The supported platforms (adapters) are:
+## Architecture 
+
+### SaaS Platforms
+
+SaaS platforms are supported via the use of adapters, the currently supported platforms are:
 
 * [X] [Sentry](https://getsentry.com/) via [raven/raven](https://github.com/getsentry/raven-php)
 * [X] [Bugsnag](https://bugsnag.com/) via [bugsnag/bugsnag](https://github.com/bugsnag/bugsnag-php)
@@ -26,15 +30,26 @@ The supported platforms (adapters) are:
 * [ ] [Raygun](https://raygun.io/)
 * [ ] [Bugify](https://bugify.com/)
 
-In addition you can use providers which will give you error tracking functionality without the use of a SaaS:
+### Local Repositories
+
+Local repositories like emails, logs or database are supported via the use of providers, the currently supported repositories are:
 
 * [X] Email Repoter via [error-tracker-adapter-email](https://github.com/morrislaptop/error-tracker-adapter-email)
 * [X] Log Reporter
+* [ ] Database Reporter
 
-Also, you can use Group providers which will report to the any / all trackers you provide. 
+These are provided as external packages as they often have a lot of other dependencies which don't belong in the core. 
 
-* [X] Chain Reporter for trying to report until one is successful (e.g. logging IF the API call to AirBrake fails)
-* [X] Net Reporter for sending multiple reports (e.g. logging AND reporting to AirBrake)
+### Grouping Trackers
+
+Also, you can use Group trackers which can use multiple trackers in different ways:
+
+* [X] Chain Reporter for reporting until one is successful (e.g. falling back to a log if Sentry is down)
+* [X] Net Reporter for reporting to all trackers (e.g. logging AND reporting to Sentry for redundancy)
+
+### Extending Things
+
+You can write your own provider or adapter by implementing the `Tracker` interface. Optionally you can use the other interfaces `Adapter`, `Provider` or `Group` and/or extend the abstract classes `AbstractAdapter`, `AbstractProvider` or `AbstractGroup` to help classify your trackers. 
 
 ## Installation
 
@@ -50,21 +65,20 @@ The use of this library is a _reporter_ and not a renderer. So it's recommended 
 
 An example exception handler for your application might look like.. 
 
-```java
+```php
 <?php namespace App\Exceptions;
 
 use Exception;
 use Morrislaptop\ErrorTracker\Tracker;
 
-class Handler
+class ExceptionHandler
 {
 	/**
 	 * @var Tracker
 	 */
-	private $tracker;
+	protected $tracker;
 
 	/**
-	 * @param LoggerInterface $log
 	 * @param Tracker $tracker
 	 */
 	function __construct(Tracker $tracker)
@@ -148,7 +162,7 @@ class Handler
 }
 ```
 
-For convenience, the above generic exception handler is included with the library so you can quickly get started, by simply creating it in your boostrap or similar. 
+For convenience, the above generic exception handler is included with the library so you can quickly get started, by simply creating it and calling the `bootstrap()` method. 
 
 ```php
 $tracker = new Morrislaptop\ErrorTracker\Adapter\Sentry(new Raven_Client('https://blah.com'));
@@ -233,7 +247,6 @@ Inspiration:
 
 * [ivory-http-adapter](https://github.com/egeloen/ivory-http-adapter)
 * [geocoder-php](https://github.com/geocoder-php/Geocoder)
-* [omnipay](https://github.com/thephpleague/omnipay)
 
 ## License
 

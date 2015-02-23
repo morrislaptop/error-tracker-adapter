@@ -18,15 +18,22 @@
             "tests\\Morrislaptop\\ErrorTracker\\": "tests/"
         }
     },
-    "require": {},
+    "repositories": [{
+        "type": "vcs",
+        "url": "http://github.com/morrislaptop/php-airbrake"
+    }],
+    "require": {
+        "psr/log": "~1.0"
+    },
     "require-dev": {
         "raven/raven": "0.10.*",
         "phpspec/phpspec": "~2.1",
         "php-vcr/php-vcr": "^1.2.1",
         "php-vcr/phpunit-testlistener-vcr": "~1.1",
         "phpunit/phpunit": "~4.5",
-        "dbtlr/php-airbrake": "~1.1",
+        "dbtlr/php-airbrake": "dev-fix-params",
         "squizlabs/php_codesniffer": "~2.2",
-        "bugsnag/bugsnag": "~2.5"
+        "bugsnag/bugsnag": "~2.5",
+        "monolog/monolog": "~1.12"
     }
 }

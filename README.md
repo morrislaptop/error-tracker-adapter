@@ -25,8 +25,8 @@ SaaS platforms are supported via the use of adapters, the currently supported pl
 * [X] [Sentry](https://getsentry.com/) via [raven/raven](https://github.com/getsentry/raven-php)
 * [X] [Bugsnag](https://bugsnag.com/) via [bugsnag/bugsnag](https://github.com/bugsnag/bugsnag-php)
 * [X] [AirBrake](https://airbrake.io/) via [dbltr/php-airbrake](https://github.com/dbtlr/php-airbrake)
-* [X] [Rollbar](https://rollbar.com/) via [rollbar-php](https://github.com/rollbar/rollbar-php)
-* [ ] [Exceptiontrap](https://exceptiontrap.com/)
+* [X] [Rollbar](https://rollbar.com/) via [rollbar/rollbar](https://github.com/rollbar/rollbar-php)
+* [X] [Exceptiontrap](https://exceptiontrap.com/) via [exceptiontrap/exceptiontrap](https://github.com/itmLABS/exceptiontrap-php)
 * [ ] [Raygun](https://raygun.io/)
 * [ ] [Bugify](https://bugify.com/)
 

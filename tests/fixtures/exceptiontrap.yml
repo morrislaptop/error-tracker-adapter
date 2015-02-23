@@ -1,0 +1,32 @@
+
+-
+    request:
+        method: POST
+        url: 'http://exceptiontrap.com/notifier/api/v1/problems.json'
+        headers:
+            Host: exceptiontrap.com
+            Expect: null
+            Accept: application/json
+            Content-Type: application/json
+            X-Api-Key: ''
+        body: '{"problem":{"notifier":"exceptiontrap-php","app_environment":null,"name":"PhpSpec\\Exception\\Wrapper\\CollaboratorException","message":"No collab!","root":"","request_uri":"http:\/\/:","location":"21 in \/Users\/craigmorris\/Sites\/error-tracker-adapter\/tests\/Adapter\/ExceptiontrapTest.php","request_params":[],"request_session":"","environment":{"IDE_PHPUNIT_CUSTOM_LOADER":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/autoload.php","ZSH":"\/Users\/craigmorris\/.holman.dotfiles","GEM_PATH":"\/Users\/craigmorris\/.rvm\/gems\/ruby-2.1.3:\/Users\/craigmorris\/.rvm\/gems\/ruby-2.1.3@global","_system_arch":"x86_64","__CF_USER_TEXT_ENCODING":"0x1F5:0x0:0x0","rvm_version":"1.26.10 (latest)","_system_name":"OSX","MANPATH":"\/usr\/local\/man:\/usr\/local\/mysql\/man:\/usr\/local\/git\/man:","XPC_FLAGS":"0x0","rvm_prefix":"\/Users\/craigmorris","LOGNAME":"craigmorris","IRBRC":"\/Users\/craigmorris\/.rvm\/rubies\/ruby-2.1.3\/.irbrc","PS1":"%3~$(git_info_for_prompt)%# ","RUBY_VERSION":"ruby-2.1.3","SSH_AUTH_SOCK":"\/private\/tmp\/com.apple.launchd.zwHWkuBV8G\/Listeners","MY_RUBY_HOME":"\/Users\/craigmorris\/.rvm\/rubies\/ruby-2.1.3","OLDPWD":"\/Applications\/PhpStorm.app\/Contents\/bin","SHELL":"\/bin\/zsh","LC_CTYPE":"","TMPDIR":"\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/","EDITOR":"atom","rvm_bin_path":"\/Users\/craigmorris\/.rvm\/bin","_system_type":"Darwin","SECURITYSESSIONID":"186a5","PATH":"\/Users\/craigmorris\/.rvm\/gems\/ruby-2.1.3\/bin:\/Users\/craigmorris\/.rvm\/gems\/ruby-2.1.3@global\/bin:\/Users\/craigmorris\/.rvm\/rubies\/ruby-2.1.3\/bin:.\/bin:\/usr\/local\/bin:\/usr\/local\/sbin:\/Users\/craigmorris\/.holman.dotfiles\/bin:\/usr\/local\/bin:\/usr\/bin:\/bin:\/usr\/sbin:\/sbin:\/Users\/craigmorris\/.rvm\/bin:\/Users\/craigmorris\/.composer\/vendor\/bin","VERSIONER_PYTHON_VERSION":"2.7","PROMPT":"\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n\u203a ","GEM_HOME":"\/Users\/craigmorris\/.rvm\/gems\/ruby-2.1.3","COMMAND_MODE":"unix2003","CLICOLOR":"true","LESS":"-R","USER":"craigmorris","PAGER":"less","HOME":"\/Users\/craigmorris","XPC_SERVICE_NAME":"0","rvm_path":"\/Users\/craigmorris\/.rvm","_system_version":"10.10","Apple_PubSub_Socket_Render":"\/private\/tmp\/com.apple.launchd.wibXmYvVU7\/Render","LSCOLORS":"exfxcxdxbxegedabagacad","PROJECTS":"\/Users\/craigmorris\/Sites","VERSIONER_PYTHON_PREFER_32_BIT":"no","PHP_SELF":"\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","SCRIPT_NAME":"\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","SCRIPT_FILENAME":"\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","PATH_TRANSLATED":"\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","DOCUMENT_ROOT":"","REQUEST_TIME_FLOAT":1424731014.3919,"REQUEST_TIME":1424731014,"argv":["\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","--configuration","\/Users\/craigmorris\/Sites\/error-tracker-adapter\/phpunit.xml.dist"],"argc":3},"trace":["#0 [internal function]: tests\\Morrislaptop\\ErrorTracker\\Adapter\\ExceptiontrapTest->testReport()","#1 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestCase.php(860): ReflectionMethod->invokeArgs(Object(tests\\Morrislaptop\\ErrorTracker\\Adapter\\ExceptiontrapTest), Array)","#2 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestCase.php(737): PHPUnit_Framework_TestCase->runTest()","#3 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestResult.php(609): PHPUnit_Framework_TestCase->runBare()","#4 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestCase.php(693): PHPUnit_Framework_TestResult->run(Object(tests\\Morrislaptop\\ErrorTracker\\Adapter\\ExceptiontrapTest))","#5 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestSuite.php(716): PHPUnit_Framework_TestCase->run(Object(PHPUnit_Framework_TestResult))","#6 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestSuite.php(716): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult))","#7 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/TextUI\/TestRunner.php(398): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult))","#8 \/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/TextUI\/Command.php(152): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)","#9 \/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php(258): PHPUnit_TextUI_Command->run(Array, true)","#10 \/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php(516): IDE_Base_PHPUnit_TextUI_Command::main()","#11 {main}"],"request_components":{"controller":null,"action":null,"module":null}}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '401'
+            message: Unauthorized
+        headers:
+            Content-Type: text/html
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            Status: '401 Unauthorized'
+            X-Frame-Options: SAMEORIGIN
+            X-XSS-Protection: '1; mode=block'
+            X-Content-Type-Options: nosniff
+            Cache-Control: no-cache
+            X-Request-Id: bc7f1e33-aec5-4988-bfde-e2eb67e0ddd2
+            X-Runtime: '0.007404'
+            X-Powered-By: 'Phusion Passenger'
+            Date: 'Mon, 23 Feb 2015 22:36:55 GMT'
+            Server: 'nginx + Phusion Passenger'
+        body: ' '

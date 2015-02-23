@@ -16,7 +16,8 @@
     "autoload-dev": {
         "psr-4": {
             "tests\\Morrislaptop\\ErrorTracker\\": "tests/"
-        }
+        },
+        "classmap": ["vendor/exceptiontrap/exceptiontrap"]
     },
     "repositories": [{
         "type": "vcs",
@@ -35,6 +36,7 @@
         "squizlabs/php_codesniffer": "~2.2",
         "bugsnag/bugsnag": "~2.5",
         "monolog/monolog": "~1.12",
-        "rollbar/rollbar": "0.9.*"
+        "rollbar/rollbar": "0.9.*",
+        "exceptiontrap/exceptiontrap": "~1.1"
     }
 }

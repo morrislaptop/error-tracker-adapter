@@ -1,0 +1,15 @@
+
+-
+    request:
+        method: POST
+        url: 'https://api.rollbar.com/api/1/item/'
+        headers:
+            Host: api.rollbar.com
+            X-Rollbar-Access-Token: c2d318596d6a4607afcf1a0c96ddfbd8
+        body: '{"data":{"timestamp":1424721569,"environment":"production","level":"error","language":"php","framework":"php","notifier":{"name":"rollbar-php","version":"0.9.10"},"uuid":"99889a0e-0175-43d3-927c-d909e96cc36d","body":{"trace":{"frames":[{"filename":"\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","lineno":516,"method":"<main>"},{"filename":"\/private\/var\/folders\/50\/gksdzgcj2s70ggzzbpkcc_x40000gn\/T\/ide-phpunit.php","lineno":258,"method":"main"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/TextUI\/Command.php","lineno":152,"method":"run"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/TextUI\/TestRunner.php","lineno":398,"method":"doRun"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestSuite.php","lineno":716,"method":"run"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestSuite.php","lineno":716,"method":"run"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestCase.php","lineno":693,"method":"run"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestResult.php","lineno":609,"method":"run"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestCase.php","lineno":737,"method":"runBare"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/vendor\/phpunit\/phpunit\/src\/Framework\/TestCase.php","lineno":860,"method":"runTest"},{"filename":"<internal>","lineno":0,"method":"invokeArgs"},{"filename":"\/Users\/craigmorris\/Sites\/error-tracker-adapter\/tests\/Adapter\/RollbarTest.php","lineno":23,"method":"testReport"}],"exception":{"class":"PhpSpec\\Exception\\Wrapper\\CollaboratorException","message":"No collab!"}}},"request":{"url":"http:\/\/unknown\/","user_ip":null,"headers":{},"method":null},"server":{"host":"Craigs-MBP.home","branch":"master"},"person":null},"access_token":"c2d318596d6a4607afcf1a0c96ddfbd8"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '100'
+            message: Continue
+        body: "HTTP/1.1 200 OK\r\nServer: nginx/1.6.2\r\nDate: Mon, 23 Feb 2015 19:59:30 GMT\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 100\r\nConnection: keep-alive\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST\r\nAccess-Control-Allow-Headers: X-Requested-With, Origin, Content-Type, Referrer, User-Agent, X-Rollbar-Access-Token\r\nAccess-Control-Allow-Credentials: true\r\nAccess-Control-Max-Age: 86400\r\nX-Response-Time: 5ms\r\n\r\n{\n  \"err\": 0,\n  \"result\": {\n    \"id\": null,\n    \"uuid\": \"99889a0e-0175-43d3-927c-d909e96cc36d\"\n  }\n}"

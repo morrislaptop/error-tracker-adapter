@@ -34,6 +34,7 @@
         "dbtlr/php-airbrake": "dev-fix-params",
         "squizlabs/php_codesniffer": "~2.2",
         "bugsnag/bugsnag": "~2.5",
-        "monolog/monolog": "~1.12"
+        "monolog/monolog": "~1.12",
+        "rollbar/rollbar": "0.9.*"
     }
 }

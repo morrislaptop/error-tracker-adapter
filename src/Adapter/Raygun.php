@@ -13,7 +13,7 @@ class Raygun extends AbstractAdapter
     /**
      * @param RaygunClient $raygun
      */
-    function __construct(RaygunClient $raygun)
+    public function __construct(RaygunClient $raygun)
     {
         $this->raygun = $raygun;
     }

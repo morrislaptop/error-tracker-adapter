@@ -11,9 +11,6 @@ use VCR\VCR;
 class RagyunTest extends TrackerTestCase
 {
 
-    /**
-     * @vcr raygun.yml
-     */
     public function testReport()
     {
         $this->markTestSkipped('php-vcr can\'t record ssl socket connections, php-vcr/php-vcr#109');

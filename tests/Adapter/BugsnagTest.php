@@ -2,7 +2,6 @@
 
 use Bugsnag_Client;
 use Morrislaptop\ErrorTracker\Adapter\Bugsnag;
-use Morrislaptop\ErrorTracker\Adapter\Sentry;
 use PhpSpec\Exception\Wrapper\CollaboratorException;
 use tests\Morrislaptop\ErrorTracker\TrackerTestCase;
 use VCR\Request;

@@ -37,6 +37,8 @@ Local repositories like emails, logs or database are supported via the use of pr
 * [X] Email Repoter via [error-tracker-adapter-email](https://github.com/morrislaptop/error-tracker-adapter-email)
 * [X] Log Reporter
 * [ ] Database Reporter
+* [ ] Mongo Reporter
+* [ ] Redis Reporter
 
 These are provided as external packages as they often have a lot of other dependencies which don't belong in the core. 
 

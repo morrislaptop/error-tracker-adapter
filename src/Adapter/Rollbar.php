@@ -13,7 +13,7 @@ class Rollbar extends AbstractAdapter
     /**
      * @param RollbarNotifier $rollbar
      */
-    function __construct(RollbarNotifier $rollbar)
+    public function __construct(RollbarNotifier $rollbar)
     {
         $this->rollbar = $rollbar;
     }

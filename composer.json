@@ -37,6 +37,7 @@
         "bugsnag/bugsnag": "~2.5",
         "monolog/monolog": "~1.12",
         "rollbar/rollbar": "0.9.*",
-        "exceptiontrap/exceptiontrap": "~1.1"
+        "exceptiontrap/exceptiontrap": "~1.1",
+        "mindscape/raygun4php": "~1.6"
     }
 }

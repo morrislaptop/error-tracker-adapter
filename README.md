@@ -11,10 +11,11 @@ Track errors and exceptions through the most popular SaaS platforms.
 
 **Error Tracker Adapter** is a PHP library which helps you track exceptions and errors in your application by providing a powerful abstraction layer for error tracker SaaS platforms and / or local repositories like emails and log files. 
 
-It has been created on two main principles:
+It has been created on three main principles:
 
 * [Code to an interface and not an implemenation](https://www.google.co.uk/?q=code%20to%20an%20interface)
 * [Protecting yourself from third party APIs breaking your application](http://butunclebob.com/ArticleS.JamesGrenning.AlternativeToTheHopeAndPrayMethod)
+* The ability to use chain or net like reporting for redundancy and/or increased reliability of errors being reported
 
 ## Architecture 
 

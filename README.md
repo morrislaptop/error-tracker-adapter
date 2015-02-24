@@ -65,6 +65,19 @@ The recommended way to install is through [Composer](http://getcomposer.org):
 $ composer require morrislaptop/error-tracker-adapter
 ```
 
+### Quick Start
+
+For convenience, a generic exception handler is included with the library so you can quickly get started, by simply creating it and calling the `bootstrap()` method. 
+
+```php
+$tracker = new Morrislaptop\ErrorTracker\Adapter\Sentry(new Raven_Client('https://blah.com'));
+// or
+$tracker = new Morrislaptop\ErrorTracker\Adapter\BugSnag(new Bugsnag_Client('2344324342'));
+
+$handler = new Morrislaptop\ErrorTracker\ExceptionHandler($tracker);
+$handler->bootstrap();
+```
+
 ## Usage
 
 The use of this library is a _reporter_ and not a renderer. So it's recommended that you handle exceptions in your application with your own class and then report to the interface if it's the right error type and/or environment.
@@ -72,7 +85,7 @@ The use of this library is a _reporter_ and not a renderer. So it's recommended 
 An example exception handler for your application might look like.. 
 
 ```php
-<?php namespace App\Exceptions;
+<?php namespace App;
 
 use Exception;
 use Morrislaptop\ErrorTracker\Tracker;
@@ -134,9 +147,7 @@ class ExceptionHandler
 	 */
 	public function handleException($e)
 	{
-		if (!getenv('APP_DEBUG')) {
-			$this->tracker->report($e);
-		}
+		$this->tracker->report($e);
 
 		throw $e; // throw back to core PHP to render
 	}
@@ -148,35 +159,13 @@ class ExceptionHandler
 	 */
 	public function handleShutdown()
 	{
-		if ( ! is_null($error = error_get_last()) && $this->isFatal($error['type']))
+		if ( ! is_null($error = error_get_last()) && in_array($error['type'], [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE]))
 		{
 			$this->handleException(new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']));
 		}
 	}
 
-	/**
-	 * Determine if the error type is fatal.
-	 *
-	 * @param  int  $type
-	 * @return bool
-	 */
-	protected function isFatal($type)
-	{
-		return in_array($type, [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE]);
-	}
-
 }
-```
-
-For convenience, the above generic exception handler is included with the library so you can quickly get started, by simply creating it and calling the `bootstrap()` method. 
-
-```php
-$tracker = new Morrislaptop\ErrorTracker\Adapter\Sentry(new Raven_Client('https://blah.com'));
-// or
-$tracker = new Morrislaptop\ErrorTracker\Adapter\BugSnag(new Bugsnag_Client('2344324342'));
-
-$handler = new Morrislaptop\ErrorTracker\ExceptionHandler($tracker);
-$handler->bootstrap();
 ```
 
 ### Group Providers

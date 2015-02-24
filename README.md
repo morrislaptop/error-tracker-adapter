@@ -36,11 +36,14 @@ Local repositories like emails, logs or database are supported via the use of pr
 
 * [X] Email Repoter via [error-tracker-adapter-email](https://github.com/morrislaptop/error-tracker-adapter-email)
 * [X] Log Reporter
-* [ ] Database Reporter
-* [ ] Mongo Reporter
-* [ ] Redis Reporter
 
-These are provided as external packages as they often have a lot of other dependencies which don't belong in the core. 
+If you use [Monolog](https://github.com/Seldaek/monolog), you now have the ability to log your exceptions into any of it's handlers - Pushover notifications, HipChat, Flowdock, Slack etc.. 
+
+```php
+$monolog = new Monolog\Logger();
+$monolog->pushHandler(new FlowdockHandler('apiToken', Monolog\Logger::ERROR));
+$logger = new Morrislaptop\ErrorTracker\Provider\Log($monolog);
+```
 
 ### Grouping Trackers
 

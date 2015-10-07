@@ -200,7 +200,7 @@ Many platforms support the idea of contexts to give you more information about e
 This will be implemented via a `ContextInterface` in the future. In the mean time you can pass extra information via the `report()` method like..
 
 ```php
-$this->tracker->report($e, ['user_id' => Session::get('user_id'));
+$this->tracker->report($e, ['user_id' => Session::get('user_id')]);
 ```
 
 ## Contributing
